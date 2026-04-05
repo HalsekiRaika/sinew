@@ -1,0 +1,16 @@
+# Ensure static linking of the C runtime on all targets.
+# Linux musl is fully static by nature.
+# Windows msvc defaults to +crt-static in Rust, but we make it explicit.
+# macOS always dynamically links libSystem (unavoidable, always present).
+
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static"]
+
+[target.aarch64-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static"]
+
+[target.x86_64-unknown-linux-musl]
+rustflags = ["-C", "target-feature=+crt-static"]
+
+[target.aarch64-unknown-linux-musl]
+rustflags = ["-C", "target-feature=+crt-static"]
