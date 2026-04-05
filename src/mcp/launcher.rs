@@ -63,7 +63,7 @@ fn spawn_detached_broker(port: u16) -> Result<u32, LauncherError> {
             cmd.pre_exec(|| {
                 nix::unistd::setsid()
                     .map(|_| ())
-                    .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e.to_string()))
+                    .map_err(|e| std::io::Error::other(e.to_string()))
             });
         }
     }
