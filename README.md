@@ -144,7 +144,6 @@ sinew shutdown
 
 | Variable | Description |
 |----------|-------------|
-| `OPENAI_API_KEY` | Enables auto-summary generation on startup (optional, uses `gpt-4o-mini`) |
 | `RUST_LOG` | Log level filter (e.g., `debug`, `info`, `warn`) |
 
 ### Defaults

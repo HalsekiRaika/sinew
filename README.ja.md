@@ -144,7 +144,6 @@ sinew shutdown
 
 | 変数 | 説明 |
 |------|------|
-| `OPENAI_API_KEY` | 起動時の自動サマリー生成を有効化（任意、`gpt-4o-mini` を使用） |
 | `RUST_LOG` | ログレベルフィルター（例: `debug`, `info`, `warn`） |
 
 ### デフォルト値

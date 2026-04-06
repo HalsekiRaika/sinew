@@ -66,13 +66,6 @@ pub async fn run_mcp_server(broker_url: &str) -> Result<(), Report<McpError>> {
     info!(peer_id = %peer_id, "Registered with broker");
     *state.peer_id.write().await = Some(peer_id.clone());
 
-    // Generate auto-summary (optional, non-blocking)
-    if let Some(summary) = super::summary::generate_summary().await
-        && let Err(e) = state.broker_client.set_summary(&peer_id, &summary).await
-    {
-        warn!(error = %e, "Failed to set auto-summary");
-    }
-
     // Start MCP server over stdio (Router wraps ServerHandler and handles tool routing)
     let router = mcp_server.into_router();
     let running = rmcp::ServiceExt::serve(router, rmcp::transport::stdio())

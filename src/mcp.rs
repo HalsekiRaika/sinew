@@ -4,5 +4,4 @@ pub mod client;
 pub mod launcher;
 pub mod lifecycle;
 pub mod server;
-pub mod summary;
 pub mod tools;
